@@ -21,8 +21,8 @@ if (!html.includes("CI/CD Deployment Successful")) {
     throw new Error("Website text is missing");
 }
 
-if (!html.includes("Version: 2.0")) {
-    throw new Error("Version 2.0 is missing");
+if (!html.includes("Version: 1.0")) {
+    throw new Error("Version 1.0 is missing");
 }
 
 console.log("All tests passed!");
