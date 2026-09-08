@@ -1,0 +1,9 @@
+{
+    "name": "devops-cicd-website",
+    "version": "1.0.0",
+    "description": "DevOps CI/CD training website",
+    "scripts": {
+      "test": "node test.js",
+      "build": "node -e \"require('fs').mkdirSync('dist',{recursive:true}); ['index.html','style.css','script.js'].forEach(f=>require('fs').copyFileSync(f,'dist/'+f))\""
+    }
+  }
