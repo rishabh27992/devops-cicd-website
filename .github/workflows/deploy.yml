@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -36,7 +35,6 @@ jobs:
     needs: test
 
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -61,13 +59,23 @@ jobs:
 
     needs: build
 
-    steps:
+    permissions:
+      id-token: write
+      contents: read
 
+    steps:
       - name: Download website
         uses: actions/download-artifact@v4
         with:
           name: website
           path: dist/
+
+      - name: Check GitHub OIDC environment
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Ref: $GITHUB_REF"
+          echo "Workflow: $GITHUB_WORKFLOW"
+          echo "Event: $GITHUB_EVENT_NAME"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
