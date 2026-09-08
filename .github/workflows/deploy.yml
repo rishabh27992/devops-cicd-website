@@ -72,10 +72,13 @@ jobs:
 
       - name: Check GitHub OIDC environment
         run: |
-          echo "Repository: $GITHUB_REPOSITORY"
-          echo "Ref: $GITHUB_REF"
-          echo "Workflow: $GITHUB_WORKFLOW"
-          echo "Event: $GITHUB_EVENT_NAME"
+           echo "Repository: $GITHUB_REPOSITORY"
+           echo "Repository ID: $GITHUB_REPOSITORY_ID"
+           echo "Repository Owner ID: $GITHUB_REPOSITORY_OWNER_ID"
+           echo "Repository Owner: $GITHUB_REPOSITORY_OWNER"
+           echo "Ref: $GITHUB_REF"
+           echo "Workflow: $GITHUB_WORKFLOW"
+           echo "Event: $GITHUB_EVENT_NAME"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
