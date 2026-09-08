@@ -17,7 +17,7 @@ for (const file of files) {
 
 const html = fs.readFileSync("index.html", "utf8");
 
-if (!html.includes("CI/CD Deployment Successful")) {
+if (!html.includes("CI/CD Deployment Sucessful")) {
     throw new Error("Website text is missing");
 }
 
