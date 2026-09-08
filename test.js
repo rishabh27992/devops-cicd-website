@@ -1,27 +1,28 @@
 const fs = require("fs");
 
-const requiredFiles = [
+const files = [
     "index.html",
     "style.css",
     "script.js"
 ];
 
-for (const file of requiredFiles) {
+for (const file of files) {
+
     if (!fs.existsSync(file)) {
-        throw new Error(`${file} is missing`);
+        throw new Error(`${file} does not exist`);
     }
 
-    console.log(`PASS: ${file} exists`);
+    console.log(`PASS: ${file}`);
 }
 
 const html = fs.readFileSync("index.html", "utf8");
 
 if (!html.includes("CI/CD Deployment Successful")) {
-    throw new Error("Website content test failed");
+    throw new Error("Website text is missing");
 }
 
-if (!html.includes("Version: 1.0")) {
-    throw new Error("Version test failed");
+if (!html.includes("Version: 2.0")) {
+    throw new Error("Version 2.0 is missing");
 }
 
 console.log("All tests passed!");
